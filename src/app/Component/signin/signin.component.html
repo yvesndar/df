@@ -1,0 +1,59 @@
+<section class="popup-loading container-fluid m-0 p-0 h-100 d-flex justify-content-center align-items-center"
+  *ngIf="showLoading">
+  <div class="loader"></div>
+</section>
+
+<section class="container-fluid p-0 m-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+  <div
+    class="signin-container container-fluid p-0 m-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+    <form [formGroup]="SigninForm" (ngSubmit)="onSignin(SigninForm.value)" *ngIf="loginForm"
+      class="d-flex flex-column justify-content-center align-items-center animate__animated animate__zoomInDown">
+      <img src="../../../assets/images/Logo.png" class="w-75" alt="" srcset="">
+      <div class="fs-5 fw-bolder py-1 text-white text-end col-lg-12"> <span>Sign In</span>
+      </div>
+      <div class="d-flex flex-column row w-100 p-0">
+        <input type="text" class="my-1" placeholder="Username" formControlName="username">
+        <input type="password" class="my-1" placeholder="Password" formControlName="password">
+      </div>
+      <div class="mt-2">
+        <button class=" btn btn-primary">
+          <svg height="20" width="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M5 13c0-5.088 2.903-9.436 7-11.182C16.097 3.564 19 7.912 19 13c0 .823-.076 1.626-.22 2.403l1.94 1.832a.5.5 0 0 1 .095.603l-2.495 4.575a.5.5 0 0 1-.793.114l-2.234-2.234a1 1 0 0 0-.707-.293H9.414a1 1 0 0 0-.707.293l-2.234 2.234a.5.5 0 0 1-.793-.114l-2.495-4.575a.5.5 0 0 1 .095-.603l1.94-1.832C5.077 14.626 5 13.823 5 13zm1.476 6.696l.817-.817A3 3 0 0 1 9.414 18h5.172a3 3 0 0 1 2.121.879l.817.817.982-1.8-1.1-1.04a2 2 0 0 1-.593-1.82c.124-.664.187-1.345.187-2.036 0-3.87-1.995-7.3-5-8.96C8.995 5.7 7 9.13 7 13c0 .691.063 1.372.187 2.037a2 2 0 0 1-.593 1.82l-1.1 1.039.982 1.8zM12 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+              fill="currentColor"></path>
+          </svg>
+          <span>Sign In</span>
+        </button>
+      </div>
+      <button class="btn text-white my-2 btn-outline-primary" (click)="getForgetPasswordForm()">Forget
+        Password</button>
+    </form>
+    <form *ngIf="forgetPasswordForm" [formGroup]="ForgetPasswordForm"
+      class="col-lg-3 pb-3 row container d-flex flex-column justify-content-center align-items-center">
+      <img class="w-75" src="../../../assets/images/Logo.png" alt="">
+      <span id="title" class="text-end text-capitalize text-white py-2 fw-bolder fs-4">Foget Password</span>
+      <div class="email d-flex flex-column justify-content-center align-items-center row col-md-12 m-0">
+        <input type="email" placeholder="Enter your email" class="p-2 my-2 fw-bold" formControlName="email"
+          required="required">
+      </div>
+      <div class="buttons d-flex justify-content-around">
+        <a class="btn btn-primary my-1 fw-bold " (click)="getForgetPasswordForm()">Sign In</a>
+        <a class=" btn btn-danger my-1 fw-bold" (click)="verifyEmail(ForgetPasswordForm.value)">Reset</a>
+      </div>
+    </form>
+  </div>
+  <div class=" container-fluid wave-container p-0 m-0">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+      </g>
+    </svg>
+  </div>
+</section>

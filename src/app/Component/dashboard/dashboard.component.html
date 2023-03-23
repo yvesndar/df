@@ -1,0 +1,168 @@
+<div class="summary-bar container-fluid d-flex justify-content-around align-items-center row">
+  <div class="head d-flex justify-content-between">
+    <span class="span fw-bold fs-5">Weclome to dashbooard</span>
+    <!-- <span class="btn btn-outline-primary fw-bold fs-6">{{date}}</span> -->
+  </div>
+  <div class="request-overview card p-2 col-lg-4 my-2">
+    <div class="title px-4">
+      <span class="fs-7 fw-bold">Request Overview</span>
+    </div>
+    <div class="details d-flex flex-wrap row">
+      <div class="request d-flex col-md-6 align-items-center">
+        <div class="icon">
+          <i
+            class="d-flex align-items-center justify-content-center fw-bold bi bi-exclamation-circle-fill text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>Total Request</span>
+          <p>{{thisMonthAllRequest}}</p>
+        </div>
+      </div>
+      <div class="approved d-flex col-md-6 align-items-center">
+        <div class="icon">
+          <i class="d-flex align-items-center justify-content-center fw-bold bi bi-check-circle-fill text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>Total approval</span>
+          <p>{{thisMonthApprovedRequest}}</p>
+        </div>
+      </div>
+      <div class="rejected d-flex col-md-6 align-items-center">
+        <div class="icon">
+          <i class="d-flex align-items-center justify-content-center fw-bold bi bi-x-circle-fill text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>Total Rejection</span>
+          <p>{{thisMonthRejectedRequest}}</p>
+        </div>
+      </div>
+      <div class="pending d-flex col-md-6 align-items-center">
+        <div class="icon">
+          <i class="d-flex align-items-center justify-content-center fw-bold bi bi-hourglass-split text-dark"></i>
+        </div>
+        <div class="numbers">
+          <span>Total Pending</span>
+          <p>{{thisMonthPendingRequest}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="request-overview card p-2 col-lg-3 my-2">
+    <div class="title px-4">
+      <span class="fs-7 fw-bold">Purchase Overview</span>
+    </div>
+    <div class="details d-flex flex-column row">
+      <div class="request d-flex col-md-10 align-items-center">
+        <div class="icon">
+          <i class="d-flex align-items-center justify-content-center fw-bold bi bi-card-checklist text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>No of Purchases</span>
+          <p>{{thisMonthPurchasesCount}}</p>
+        </div>
+      </div>
+      <div class="approved d-flex col-md-10 align-items-center">
+        <div class="icon">
+          <!-- <i class=" bi bi-check-circle-fill "></i> -->
+          <i class="bi bi-cash-coin d-flex align-items-center justify-content-center fw-bold text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>Total Expense</span>
+          <p>{{thisMonthPurchasesTotal}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="request-overview card p-2 col-lg-3 my-2">
+    <div class="title px-4">
+      <span class="fs-7 fw-bold">Return Overview</span>
+    </div>
+    <div class="details d-flex flex-column row">
+      <div class="request d-flex col-md-10 align-items-center">
+        <div class="icon">
+          <i class="d-flex align-items-center justify-content-center fw-bold bi bi-card-checklist text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>No of Returns</span>
+          <p>{{thisMonthReturnCount}}</p>
+        </div>
+      </div>
+      <div class="approved d-flex col-md-10 align-items-center">
+        <div class="icon">
+          <!-- <i class=" bi bi-check-circle-fill "></i> -->
+          <i class="bi bi-layer-backward d-flex align-items-center justify-content-center fw-bold text-white"></i>
+        </div>
+        <div class="numbers">
+          <span>Total Quanity</span>
+          <p>{{thisMonthReturnQuantity}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="charts d-flex flex-wrap justify-content-around text-center">
+  <div class="request-container my-2 col-md-3">
+    <h5 class="py-3">Monthly Request for every month</h5>
+    <div class="chart"><apx-chart [series]="requestMonthlyChartOptions.series"
+        [chart]="requestMonthlyChartOptions.chart" [dataLabels]="requestMonthlyChartOptions.dataLabels"
+        [plotOptions]="requestMonthlyChartOptions.plotOptions" [yaxis]="requestMonthlyChartOptions.yaxis"
+        [fill]="requestMonthlyChartOptions.fill" [stroke]="requestMonthlyChartOptions.stroke"
+        [tooltip]="requestMonthlyChartOptions.tooltip" [xaxis]="requestMonthlyChartOptions.xaxis"></apx-chart>
+    </div>
+
+  </div>
+  <div class="request-container my-2 col-md-3">
+    <h5 class="py-3">Monthly Purchase for every month</h5>
+    <div class="chart"><apx-chart [series]="purchaseMonthlyChartOptions.series"
+        [chart]="purchaseMonthlyChartOptions.chart" [dataLabels]="purchaseMonthlyChartOptions.dataLabels"
+        [plotOptions]="purchaseMonthlyChartOptions.plotOptions" [yaxis]="purchaseMonthlyChartOptions.yaxis"
+        [fill]="purchaseMonthlyChartOptions.fill" [stroke]="purchaseMonthlyChartOptions.stroke"
+        [tooltip]="purchaseMonthlyChartOptions.tooltip" [xaxis]="purchaseMonthlyChartOptions.xaxis"></apx-chart>
+    </div>
+  </div>
+  <div class="request-container my-2 col-md-3">
+    <h5 class="py-3">Monthly Expense for every month</h5>
+    <div class="chart"><apx-chart [series]="purchaseMonthlyExpenseChartOptions.series"
+        [chart]="purchaseMonthlyExpenseChartOptions.chart" [dataLabels]="purchaseMonthlyExpenseChartOptions.dataLabels"
+        [plotOptions]="purchaseMonthlyExpenseChartOptions.plotOptions"
+        [yaxis]="purchaseMonthlyExpenseChartOptions.yaxis" [fill]="purchaseMonthlyExpenseChartOptions.fill"
+        [stroke]="purchaseMonthlyExpenseChartOptions.stroke" [tooltip]="purchaseMonthlyExpenseChartOptions.tooltip"
+        [xaxis]="purchaseMonthlyExpenseChartOptions.xaxis"></apx-chart>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-wrap justify-content-around ">
+  <div class="recent-container px-5 my-4 card">
+    <h5 class="my-2">Recent Request With their status</h5>
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table w-100 ">
+      <thead>
+        <tr>
+          <th>part number</th>
+          <th>description </th>
+          <th>requested at</th>
+          <th>requested by</th>
+          <th>New Qauntity</th>
+          <th>Returned Qauntity</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let item of recent">
+          <td>{{item.partNumber}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.requestedAt | date}}</td>
+          <td>{{item.requestedBy.firstname}} {{item.requestedBy.lastname}}</td>
+          <td>{{item.new}}</td>
+          <td>{{item.used}}</td>
+          <td> <span
+              [ngClass]="{'pending':item.status==='Pending','rejected':item.status==='Rejected','approved':item.status==='Approved'}">{{item.status}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button text-end my-3">
+      <a class="link" routerLink="/home/request/pending">more</a>
+    </div>
+
+  </div>
+</div>

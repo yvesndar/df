@@ -1,0 +1,143 @@
+.card,
+.table-container,
+.request-container {
+  border-radius: .5rem;
+  background: #e4e4e4;
+  box-shadow: inset 16px 16px 28px #d9d9d9,
+    inset -16px -16px 28px #d9d9d9;
+}
+
+.summary-bar {
+  padding: 2rem;
+}
+
+.request-overview,
+.recent-approved,
+.recent-rejected {
+  border-radius: 1rem;
+  border: none;
+}
+
+.details {
+  padding: 0.5rem 1rem;
+}
+
+.details .request,
+.details .approved,
+.details .rejecedt,
+.details .pending {
+  padding: 0.5rem;
+}
+
+.details .request .icon,
+.details .approved .icon,
+.details .rejected .icon,
+.details .pending .icon {
+  margin-right: 0.5rem;
+}
+
+.details .request i,
+.details .approved i,
+.details .rejected i,
+.details .pending i {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.details .request i {
+  background-color: green;
+}
+
+.details .approved i {
+  background-color: rgb(0, 0, 255);
+}
+
+.details .rejected i {
+  background-color: rgb(255, 0, 0);
+}
+
+.details .pending i {
+  background-color: yellow;
+  color: black;
+}
+
+.details .request span,
+.details .approved span,
+.details .rejected span,
+.details .pending span {
+  font-weight: bolder;
+  color: rgb(65, 64, 64);
+  font-size: 10px;
+}
+
+.details .request p,
+.details .approved p,
+.details .rejected p,
+.details .pending p {
+  font-size: 16px;
+  font-weight: 1000;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-details-charts {
+  padding: 1rem;
+}
+
+.most-requested {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px rgb(61, 61, 61);
+}
+
+.item span {
+  font-weight: 500;
+}
+
+tbody {
+  border-collapse: collapse;
+}
+
+table .approved {
+  padding: .2rem 2rem;
+  background-color: blue;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: .2rem;
+}
+
+table .rejected {
+  padding: .2rem 2rem;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: .2rem;
+}
+
+table .pending {
+  padding: .2rem 2rem;
+  background-color: yellow;
+  color: black;
+  font-weight: 500;
+  border: none;
+  border-radius: .2rem;
+}
+
+
+.link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  background-color: blue;
+  padding: .1rem .5rem;
+  border: none;
+  border-radius: .2rem;
+}
+
+.recent-container {
+  width: 90%;
+  border: none;
+}

@@ -1,0 +1,117 @@
+.popup-container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.425);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  backdrop-filter: blur(1.5px);
+  z-index: 4;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-container form {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(60deg, #0031b9 0%, #002cf0 100%);
+}
+
+.popup-container .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-container .header i {
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: .5rem;
+  transition: 0.5s;
+}
+
+.popup-container .header i:hover {
+  background-color: #020291;
+}
+
+.popup-container .content {
+  max-width: 800px;
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.popup-container .content div {
+  color: white;
+}
+
+/* .popup-container .content div label {} */
+
+.popup-container .content div input,
+.popup-container .content div option,
+.popup-container .content div select {
+  padding: 0.5rem;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  outline: none;
+  width: 90%;
+}
+
+.popup-container .verify,
+.popup-container .button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.popup-container .verify button,
+.popup-container .button button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 550;
+  border: 2px solid #00177c;
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.popup-container .verify button:hover,
+.popup-container .button button:hover {
+  background-color: #00177c;
+  color: white;
+}
+
+
+.end {
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .2rem;
+}
+
+.warning {
+  background-color: yellow;
+  color: black;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .2rem;
+}
+
+.good {
+  background-color: blue;
+  color: white;
+  font-weight: 500;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .2rem;
+}

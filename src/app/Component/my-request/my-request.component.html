@@ -1,0 +1,94 @@
+<div class="container-fluid px-3 d-flex justify-content-around align-items-center flex-wrap row">
+  <div class="request-header d-flex justify-content-around align-items-center flex-wrap col-lg-12">
+    <div class="col-lg-6">
+      <h3>My Request List</h3>
+    </div>
+    <div class="">
+      <button class="btn btn-primary fw-bold" (click)="getRequestForm()"> New Request</button>
+    </div>
+  </div>
+</div>
+
+<div class=" container-fluid px-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap"
+    style="width:100%">
+    <thead class="bg-dark">
+      <tr class="text-white fw-bold">
+        <th>part number</th>
+        <th>description </th>
+        <th>requested at</th>
+        <th>new quantity </th>
+        <th>used quantity </th>
+        <th>status </th>
+      </tr>
+    </thead>
+    <tbody class="fw-bold">
+      <tr *ngFor=" let item of request">
+        <td>{{item.partNumber}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.requestedAt | date}}</td>
+        <td>{{item.new}}</td>
+        <td>{{item.used}}</td>
+        <td [ngClass]="item.status==='Approved'? 'approved': item.status==='Rejected'? 'rejected': 'pending'">
+          {{item.status}}
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<div class="popup-container d-flex justify-content-center align-items-center" *ngIf=" requestForm">
+  <div class="container-fluid d-flex justify-content-center align-items-center row">
+    <form [formGroup]="RequestForm" class="col-md-5">
+      <div class="header text-light">
+        <h1 class="text-capitalize">request item</h1>
+        <i class='bx bx-arrow-back text-white fw-bold fs-5' (click)="getRequestForm()"></i>
+      </div>
+      <div class="content row">
+        <div class="col-md-5 text-light partNumber">
+          <label class="text-capitalize" for="partNumber">part number</label>
+          <input type="text" placeholder="part number" name="partNumber" formControlName="partNumber">
+        </div>
+        <div class="col-md-5 text-light serialNumber">
+          <label class="text-capitalize" for="serialNumber">Serial number</label>
+          <input class="bg-white" type="text" placeholder="serial number" name="serialNumber"
+            formControlName="serialNumber">
+        </div>
+        <div class="col-md-5 text-light category">
+          <label class="text-capitalize" for="category">Category</label>
+          <input class="bg-white" type="text" placeholder="category" name="category">
+        </div>
+        <div class="col-md-5 text-light description">
+          <label class="text-capitalize" for="description">description</label>
+          <input class="bg-white" type="text" placeholder="description" name="description"
+            formControlName="description">
+        </div>
+        <div class="col-md-5 text-light quantity" *ngIf="showCurrentQuantity">
+          <label class="text-capitalize" for="quantity">New quantity</label>
+          <input class="bg-white" type="text" placeholder="quantity" name="quantity" formControlName="new">
+        </div>
+        <div class="col-md-5 text-light quantity" *ngIf="showCurrentQuantity">
+          <label class="text-capitalize" for="quantity">Returned quantity</label>
+          <input class="bg-white" type="text" placeholder="quantity" name="quantity" formControlName="used">
+        </div>
+        <div class="col-md-5 text-light quantity" *ngIf="quantityNeeded">
+          <label class="text-capitalize" for="quantity">New quantity</label>
+          <input type="number" placeholder="quantity" name="quantity" formControlName="neddedNewQuantity">
+        </div>
+        <div class="col-md-5 text-light quantity" *ngIf="quantityNeeded">
+          <label class="text-capitalize" for="quantity">Used quantity</label>
+          <input type="number" placeholder="quantity" name="quantity" formControlName="neddedUsedQuantity">
+        </div>
+      </div>
+
+      <div class="py-2 d-flex justify-content-around align-items-center">
+        <button *ngIf=" showSubmitButton" type="submit" class="btn btn-primary fs-6"
+          (click)="sendRequestItem(RequestForm.value)">Submit</button>
+        <button type="submit" class="btn btn-success fs-6" (click)="
+          onVerify(RequestForm.value.partNumber)">Verify</button>
+
+      </div>
+    </form>
+  </div>
+</div>

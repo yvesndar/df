@@ -1,0 +1,122 @@
+.user__info {
+  padding: 1rem 2rem;
+}
+
+.user__image i {
+  font-size: 5rem;
+}
+
+.user__name-position li {
+  padding: 0.5rem 0;
+  list-style: none;
+}
+
+.user__update-info {
+  padding: 1rem;
+}
+
+.user__update-info button {
+  background-color: blue;
+  color: white;
+  font-size: 12px;
+  margin: 0 1rem;
+}
+
+.user__edit-account {
+  padding: 1rem 0;
+}
+
+.user__edit-account .account-info {
+  padding: 1rem 0;
+}
+
+.user__edit-account .account-info .cards {
+  padding: 1rem;
+  margin: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, rgb(0, 0, 255) 10%, rgb(0, 2, 150) 90%);
+  /* background: linear-gradient(180deg, rgb(255, 255, 255) 30%, rgb(177, 177, 177) 150%); */
+  transition: .5s ease;
+}
+
+.cards label {
+  font-size: 12px;
+}
+
+.cards:hover {
+  transform: scale(1.1);
+}
+
+.user__edit-account .account-info .cards input {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.loading-popup-container {
+  background-color: rgba(0, 0, 0, 0.664);
+  position: absolute;
+  width: 100%;
+  height: 93.8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.loading-popup-container .loading-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.loading-popup-container .spinner {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  border: 3.2px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  border-color: #fafafa rgba(0, 0, 0, 0);
+  -webkit-animation: spinner-e04l1k 1s infinite linear;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.loading-popup-container .spinner::before,
+.loading-popup-container .spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 1.6px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.loading-popup-container .spinner::before {
+  border-color: #000000 rgba(0, 0, 0, 0);
+  -webkit-animation: inherit;
+  animation: inherit;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.loading-popup-container .spinner::after {
+  margin: 6.4px;
+}
+
+@-webkit-keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
+}

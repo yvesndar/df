@@ -1,0 +1,66 @@
+<div class="container m-auto py-4 d-flex justify-content-between">
+  <h3 class="text-center fw-bolder">Tools Request List</h3>
+  <button class="btn btn-primary fw-bold fs-6 text-capitalize " (click)="requestForm()"> new
+    request</button>
+</div>
+
+<div class="container-fluid px-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap"
+    style="width:100%">
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Serial Number</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Requested On</th>
+        <th>Return On</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of item">
+        <td>{{item.partNumber}}</td>
+        <td>{{item.serialNumber}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.requestedAt|date}}</td>
+        <td>{{item.returnedAt |date}}</td>
+        <td>{{item.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="w-100 new-request-form h-100 d-flex justify-content-center align-items-center" *ngIf="toolRequestForm">
+  <div class="container form-container py-3">
+    <header class="d-flex justify-content-between align-items-center container-fluid text-light">
+      <h3 class="text-capitalize">new request</h3>
+      <i class='bi bi-x text-white fw-bold fs-5' (click)="requestForm()"></i>
+    </header>
+
+    <form [formGroup]="ToolRequestForm" class="row">
+      <div class="my-2 partNumber text-light d-flex flex-column col-md-6 ">
+        <input type="text" placeholder="Part Number" formControlName="partNumber">
+      </div>
+      <div class="my-2 serialNumber text-light d-flex flex-column col-md-6 ">
+        <input type="text" placeholder="Serial Number" formControlName="serialNumber">
+      </div>
+      <div class="my-2 description text-light d-flex flex-column col-md-6 ">
+        <input type="text" placeholder="Description" formControlName="description">
+      </div>
+      <div class="my-2 quantity text-light d-flex flex-column col-md-6 ">
+        <input type="number" placeholder="Quantity" formControlName="quantity">
+      </div>
+      <div class="my-2 date text-light d-flex flex-column col-md-6 ">
+        <input type="date" placeholder="Return Date" formControlName="returnDate">
+      </div>
+      <div class="button d-flex justify-content-around container-fluid my-1">
+        <button *ngIf="submitButton" class="btn btn-primary" type="submit"
+          (click)="onSubmit(ToolRequestForm.value)">Submit</button>
+        <button class="btn btn-success" (click)="verify(ToolRequestForm.value)">Verify</button>
+      </div>
+    </form>
+
+  </div>
+</div>

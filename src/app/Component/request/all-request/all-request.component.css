@@ -1,0 +1,32 @@
+.pending {
+  padding: .2rem 2rem;
+  background-color: yellow;
+  color: black;
+  font-weight: 500;
+  border: none;
+  border-radius: .2rem;
+}
+
+.approved {
+  padding: .2rem 2rem;
+  background-color: blue;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: .2rem;
+}
+
+.rejected {
+  padding: .2rem 2rem;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: .2rem;
+}
+
+.header-button button {
+  width: 20%;
+  font-size: 12px;
+  font-weight: bolder;
+}

@@ -1,0 +1,21 @@
+header {
+  width: 100%;
+  background: linear-gradient(45deg, rgb(0, 0, 189), rgb(0, 0, 94));
+}
+
+.nav-link {
+  color: white;
+  font-size: 12px;
+}
+
+.nav-link:hover {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  background-color: rgba(0, 0, 255, 0.699);
+}
+
+.current {
+  /* color: rgb(0, 110, 255); */
+  font-weight: 500;
+  background-color: rgba(0, 0, 255, 0.699);
+}

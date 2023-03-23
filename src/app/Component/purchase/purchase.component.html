@@ -1,0 +1,194 @@
+<!-- <app-navigation></app-navigation> -->
+<div class="container m-auto py-4 d-flex justify-content-between">
+  <header>
+    <h4 class="text-center">Purchased item list</h4>
+  </header>
+  <div class="buttons">
+    <button class="btn btn-primary" (click)="newPurchaseForm()">New Purchase</button>
+  </div>
+</div>
+
+<div class="container-fluid px-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap"
+    style="width:100%">
+    <thead class="bg-dark">
+      <tr class="text-white fw-bold">
+        <th>part number</th>
+        <th>description </th>
+        <th>Invoice Number</th>
+        <th>quantity</th>
+        <th>Price Per unit</th>
+        <th>Currency</th>
+        <th>Exchange Rate</th>
+        <th>total price (RWF)</th>
+        <th>Purchased On</th>
+        <th>Category</th>
+        <th>Expiration Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fw-bold" *ngFor="let item of purchases">
+        <td>{{item.partNumber}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.invoiceNumber}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.pricePerUnit}}</td>
+        <td>{{item.currency}}</td>
+        <td>{{item.exchange}}</td>
+        <td>{{item.total}}</td>
+        <td>{{item.purchasedOn | date}}</td>
+        <td>{{item.category}}</td>
+        <td> <span
+            [ngClass]="{'end':monthDiff(item.shelflife)===0,'warning':monthDiff(item.shelflife)<=5 && monthDiff(item.shelflife)>0,'good':monthDiff(item.shelflife)>5}">{{monthDiff(item.shelflife)}}
+            Month Remaing</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="popup-container h-100 w-100 d-flex justify-content-center align-items-center" *ngIf="purchaseForm">
+  <div class="content">
+    <form [formGroup]="PurchaseForm" class="w-100">
+      <div class="header">
+        <h1>Purchase Form</h1>
+        <i class='bi bi-x fs-4' (click)="newPurchaseForm()"></i>
+      </div>
+      <div class="row d-flex justify-content-between">
+        <div class=" col-md-5 d-flex flex-column">
+          <label for="purchaseOrderNumber">Purchase Order Number</label>
+          <input purchaseOrderNumber="text" placeholder="Purchase Order Number" name="purchaseOrderNumber"
+            formControlName="purchaseOrderNumber">
+        </div>
+        <div class="col-md-5 d-flex flex-column">
+          <label for=" invoiceNumber text-capitalize">Invoice Number</label>
+          <input type="text" placeholder="invoiceNumber" name="invoice number" formControlName="invoiceNumber">
+        </div>
+        <div class="w-100 m-0 p-0 d-flex justify-content-around align-items-center row">
+          <div class="col-md-6 m-0 p-0 d-flex justify-content-around align-items-center row">
+            <span class="fs-5 fw-bold">Item Information</span>
+            <div class="col-md-6 d-flex align-items-center justify-content-around my-1 p-0">
+              <input class="" type="text" placeholder="part number" name="partNumber" formControlName="partNumber">
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-around my-1 p-0">
+              <input class="" type="text" placeholder="serialNumber" name="serialNumber" formControlName="serialNumber">
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-around my-1 p-0">
+              <input class="" type="text" placeholder="description" name="description" formControlName="description">
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-around my-1 p-0">
+              <input class="" type="text" placeholder="packing" name="packing" formControlName="packing">
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-around my-1 p-0 flex-column">
+              <select id=" currency" class="currency" formControlName="category" placeholder="category">
+                <option value="Tools">Tools</option>
+                <option value="Spare Parts">Spare Parts</option>
+              </select>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-around my-1 p-0">
+              <input class="" type="date" placeholder="shelflife" name="shelflife" formControlName="shelflife">
+            </div>
+          </div>
+          <div class="col-md-6 m-0 p-0 d-flex justify-content-around row">
+            <span class="fs-5 fw-bold">Vendor Information</span>
+            <div class="col-md-6 d-flex justify-content-around align-items-center p-0">
+              <input type=" text" placeholder="vendor name" name="vname" formControlName="vname">
+            </div>
+            <div class="col-md-6 d-flex justify-content-around align-items-center p-0">
+              <input type="text" placeholder="vendor address" name="vaddress" formControlName="vaddress">
+            </div>
+            <div class="col-md-12 d-flex row">
+              <span class="fs-5 fw-bold">Price</span>
+              <div class="col-md-6 d-flex justify-content-around align-items-center p-0 my-1">
+                <input type="number" placeholder="quantity" name="quantity" formControlName="quantity">
+              </div>
+              <div class="col-md-6 d-flex justify-content-around align-items-center p-0 my-1">
+                <input type="number" placeholder="Price Per Unit" name="pricePerUnit" formControlName="pricePerUnit">
+              </div>
+              <div class="col-md-6 d-flex justify-content-around align-items-center p-0 my-1">
+                <select id="currency" class="currency" formControlName="currency">
+                  <option value="USD">USD</option>
+                  <option value="EURO">EURO</option>
+                  <option value="RWF">RWF</option>
+                </select>
+              </div>
+              <div class="col-md-6 d-flex justify-content-around align-items-center p-0 my-1">
+                <input type="number" placeholder="Exchange" name="exchange" formControlName="exchange">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="button">
+        <button type="submit" class="button text-capitalize"
+          (click)="addNewPurchase(PurchaseForm.value)">submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="popup-container container-fluid h-100 w-100 d-flex justify-content-center align-items-center"
+  *ngIf="purchaseInvoice">
+  <div class="container-fluid row d-flex justify-content-center bg-white h-100">
+    <div class="row col-lg-8">
+      <div class="head col-lg-12 d-flex justify-content-between">
+        <div class="company col-lg-4 d-flex justify-content-center align-items-start flex-column row py-2 px-4">
+          <img class="col-lg-4" src="../../../../assets/images/logo-black.png" alt="">
+          <span class="fw-bold">Akagera Warehouse Management System</span>
+          <span class="fw-bold">Kigali</span>
+          <span class="fw-bold">Kicukiro</span>
+          <span class="fw-bold">Kanombe</span>
+        </div>
+        <div class="title col-lg-4 d-flex justify-content-center align-items-end flex-column">
+          <div class="fw-bolder fs-4">INVOICE</div>
+          <div class="fw-bold">{{invoiceNumber}}</div>
+        </div>
+      </div>
+      <div class="col-lg-12 d-flex justify-content-between mt-2 row">
+        <div class=" itemDetals col-12 row d-flex justify-content-between align-items-center">
+          <div class="to col-lg-4 row px-4">
+            <div class="text-secondary fs-4 fw-bold">Invoice to :</div>
+            <div class="fw-bold">Joseph E Carr,</div>
+            <div class="fw-bold">102, 102 Crown Street,</div>
+            <div class="fw-bold">London, W3 3PR.</div>
+          </div>
+          <div class="col-lg-4 row d-flex justify-content-center text-end">
+            <div class="fw-bolder fs-4">Balance</div>
+            <div class="fw-bold">RWF {{total}}</div>
+            <div class="fw-bold">Purchased on : {{date| date}}</div>
+          </div>
+        </div>
+        <div class="purchase mt-5 row">
+          <h3>Purchase Details</h3>
+          <div>
+            <div class=" col-lg-6 d-flex justify-content-between my-2 border-bottom">
+              <span class="fw-bolder fs-6">Description :</span>
+              <span class="fw-bold fs-6">{{description}}</span>
+            </div>
+            <div class=" col-lg-6 d-flex justify-content-between my-2 border-bottom">
+              <span class="fw-bolder fs-6">Serial Number :</span>
+              <span class="fw-bold fs-6">{{serialNumber}}</span>
+            </div>
+            <div class=" col-lg-6 d-flex justify-content-between my-2 border-bottom">
+              <span class="fw-bolder fs-6">Quanity :</span>
+              <span class="fw-bold fs-6">{{quantity}}</span>
+            </div>
+            <div class=" col-lg-6 d-flex justify-content-between my-2 border-bottom">
+              <span class="fw-bolder fs-6">Price per unit :</span>
+              <span class="fw-bold fs-6">{{pricePerUnit}}</span>
+            </div>
+            <div class=" col-lg-6 d-flex justify-content-between my-2 border-bottom">
+              <span class="fw-bolder fs-6">Total :</span>
+              <span class="fw-bold fs-6">{{total}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="text-end">
+          <a (click)="newPurchaseForm()" class="btn btn-primary">Back</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

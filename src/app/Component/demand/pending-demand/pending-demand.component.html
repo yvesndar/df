@@ -1,0 +1,45 @@
+<div class="container m-auto py-4 d-flex justify-content-between">
+  <h3 class="text-center fw-bolder">Tools Request List</h3>
+  <div class="buttons w-25">
+    <a class="btn fw-bold mx-2 btn-outline-primary" routerLinkActive="active" routerLink="/home/demand/taken">Taken</a>
+    <a class="btn fw-bold mx-2 btn-outline-success" routerLinkActive="active"
+      routerLink="/home/demand/returned">Returned</a>
+    <a class="btn fw-bold mx-2 btn-outline-warning" routerLinkActive="active"
+      routerLink="/home/demand/pending">Pending</a>
+  </div>
+</div>
+
+<div class="container-fluid px-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap"
+    style="width:100%">
+    <thead>
+      <tr>
+        <th>Part Number</th>
+        <th>Serial Number</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Requested On</th>
+        <th>Return On</th>
+        <th>Requested By</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pendingTool">
+        <td>{{item.partNumber}}</td>
+        <td>{{item.serialNumber}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.requestedAt|date}}</td>
+        <td>{{item.returnedAt |date}}</td>
+        <td>{{item.demandedBy.firstname}} {{item.demandedBy.lastname}}</td>
+        <td>{{item.status}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="onApprove(item)">Approve</button>
+          <button class="btn btn-danger">Cancel</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

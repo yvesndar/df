@@ -1,0 +1,65 @@
+<div class="container-fluid p-0 m-0">
+  <header>
+    <section class="container">
+      <div class="d-flex flex-wrap justify-content-center py-1 mb-1">
+        <a routerLink="/home/dashboard"
+          class="d-flex align-items-center mb-1 mb-md-0 me-md-auto text-white text-decoration-none fw-bolder">
+          Akagera
+        </a>
+        <ul class="nav nav-pills d-flex justify-content-center">
+          <li *ngIf="dashboardNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/dashboard">
+              <i class="bi bi-speedometer"></i>
+              Dashboard</a>
+          </li>
+          <li *ngIf="sparePartNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/stock">
+              <i class="bi bi-house-gear-fill"></i> Stock</a>
+          </li>
+          <li *ngIf="toolNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/appliance">
+              <i class="bi bi-tools"></i>
+              Appliance</a>
+          </li>
+          <li *ngIf="toolRequestNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/demand/pending">
+              <i class="bi bi-journal-bookmark-fill"></i> Demand</a>
+          </li>
+          <li *ngIf="spareRequestNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/request/pending">
+              <i class="bi bi-tags-fill"></i>
+              Request</a>
+          </li>
+          <li *ngIf="returnedNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/returned"><i class="bi bi-cart-x-fill"></i>
+              Returned</a>
+          </li>
+          <li *ngIf="purchaseNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/purchase"> <i class="bi bi-cart-fill"></i>
+              Purchase</a>
+          </li>
+          <li *ngIf="myRequestNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/my-request"> <i class="bi bi-house-gear-fill"></i>
+              My Request</a>
+          </li>
+          <li *ngIf="myToolNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/my-appliance"> <i class="bi bi-tools"></i>
+              My Appliances</a>
+          </li>
+          <li *ngIf="userNav" class="nav-item"><a class="nav-link" routerLinkActive="current" routerLink="/home/users">
+              <i class="bi bi-people-fill"></i>
+              Users</a>
+          </li>
+          <li *ngIf="profileNav" class="nav-item"><a class="nav-link" routerLinkActive="current"
+              routerLink="/home/profile">
+              <i class="bi bi-person-circle"></i>
+              Profile</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

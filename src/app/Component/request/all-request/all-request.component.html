@@ -1,0 +1,47 @@
+<div class="container-fluid px-3 d-flex justify-content-around align-items-center flex-wrap row">
+  <div class="request-header d-flex justify-content-around align-items-center flex-wrap col-lg-12 mt-4">
+    <div class="col-lg-8 d-flex justify-content-between align-items-center">
+      <h3>All Request List</h3>
+      <div class="w-50 d-flex justify-content-center align-items-center header-button">
+        <button class="mx-2 btn btn-outline-success" routerLink="/home/request/all"
+          routerLinkActive="active">All</button>
+        <button class="mx-2 btn btn-outline-primary" routerLink="/home/request/approved"
+          routerLinkActive="active">Approved</button>
+        <button class="mx-2 btn btn-outline-danger" routerLink="/home/request/rejected"
+          routerLinkActive="active">Rejected</button>
+        <button class="mx-2 btn btn-outline-warning" routerLink="/home/request/pending"
+          routerLinkActive="active">Pending</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class=" container-fluid px-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover w-100 ">
+    <thead class="bg-dark">
+      <tr class="text-white fw-bold">
+        <th>part number</th>
+        <th>description </th>
+        <th>requested at</th>
+        <th>new quantity </th>
+        <th>used quantity </th>
+        <th>requested by</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody class="fw-bold">
+      <tr *ngFor=" let item of allRequest">
+        <td>{{item.partNumber}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.requestedAt | date}}</td>
+        <td>{{item.new}}</td>
+        <td>{{item.used}}</td>
+        <td>{{item.requestedBy.firstname}} {{item.requestedBy.lastname}}</td>
+        <td> <span
+            [ngClass]="{'pending':item.status==='Pending','rejected':item.status==='Rejected','approved':item.status==='Approved'}">{{item.status}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

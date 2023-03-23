@@ -1,0 +1,78 @@
+<div class="container m-auto d-flex justify-content-center row">
+  <div class="container row col-md-12">
+    <div class="profile-container col-md-12 row d-flex justify-content-center align-items-center flex-column">
+      <div class="user__profile-content col-lg-6">
+        <div class="user__info d-flex container justify-content-around align-items-center row">
+          <div class="user__image text-center col-lg-3">
+            <i class="bi bi-person-circle"></i>
+          </div>
+          <div class="user__name-position container col-lg-7 row">
+            <ul class="container-fluid row">
+              <li class="d-flex align-items-center container ">
+                <span class="fw-bolder fs-6">Name: </span>
+                <p class="text-capitalize m-0 px-2"> {{firstname}} {{lastname}}</p>
+              </li>
+              <li class="d-flex align-items-center">
+                <span class="fw-bolder text-black">Email: </span>
+                <p class="m-0 px-2">{{email}}</p>
+              </li>
+              <li class="d-flex align-items-center">
+                <span class="fw-bolder text-black">Role: </span>
+                <p class="m-0 px-2">{{role}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="user__update-info col-md-10 row">
+        <div class="user__buttons text-end col-md-12">
+          <button class="btn btn-primary text-capitalize fw-bold">Update</button>
+          <button class="btn btn-primary text-capitalize fw-bold" (click)="logOut()">sign out</button>
+        </div>
+
+        <div class="user__edit-account">
+          <span class="fw-bolder fs-5">Account Information</span>
+          <div class="account-info d-flex flex-wrap row">
+            <div class="cards col-md-3 user__name">
+              <div class="title d-flex align-items-center text-white justify-content-between">
+                <label class="text-capitalize fw-bold" for="name">names</label>
+                <i class="text-white bi bi-person-vcard-fill"></i>
+              </div>
+              <p class="py-2 text-white w-100 fs-6 d-flex align-items-center  text-capitalize">{{firstname}}
+                {{lastname}}</p>
+            </div>
+            <div class=" cards col-md-3 user__username">
+              <div class="title d-flex align-items-center text-white justify-content-between">
+                <label class="text-capitalize fw-bold" for="address">username</label>
+                <i class="text-white bi bi-person-lines-fill"></i>
+              </div>
+              <p class="py-2 text-white w-100 d-flex align-items-center  text-capitalize">{{username}}</p>
+            </div>
+            <div class="cards col-md-3 user__email">
+              <div class="title d-flex align-items-center text-white justify-content-between">
+                <label class="text-capitalize fw-bold" for="name">email</label>
+                <i class="text-white bi bi-envelope-fill"></i>
+              </div>
+              <p class="py-2 text-white w-100 d-flex align-items-center">{{email}}</p>
+            </div>
+            <div class="cards col-md-3 user__phoone">
+              <div class="title d-flex align-items-center text-white justify-content-between">
+                <label class="text-capitalize fw-bold" for="name">phone number</label>
+                <i class="text-white bi bi-telephone-fill"></i>
+              </div>
+              <p class="py-2 text-white w-100 d-flex align-items-center  text-capitalize">{{phone}}</p>
+            </div>
+            <div class="cards col-md-3 user__name">
+              <div class="title d-flex align-items-center text-white justify-content-between">
+                <label class="text-capitalize fw-bold" for="name">address</label>
+                <i class="text-white bi bi-geo-alt-fill"></i>
+              </div>
+              <p class="py-2 text-white w-100 d-flex align-items-center  text-capitalize">{{address}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

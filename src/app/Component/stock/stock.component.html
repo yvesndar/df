@@ -1,0 +1,37 @@
+<div class="content">
+  <div class="container m-auto py-4 d-flex justify-content-between">
+    <h3 class="text-center fw-bolder">Spare Parts List</h3>
+  </div>
+
+  <div class="container-fluid px-5">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover dt-responsive nowrap"
+      style="width:100%">
+      <thead>
+        <tr>
+          <th>Part Number</th>
+          <th>Serial Number </th>
+          <th>Description</th>
+          <th>New Quantity</th>
+          <th>Returned Quantity</th>
+          <th>Received At</th>
+          <th>Received By</th>
+          <!-- <th>Action</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="fw-bold" *ngFor="let item of parts">
+          <td>{{item.partNumber}}</td>
+          <td>{{item.serialNumber}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.new}}</td>
+          <td>{{item.used}}</td>
+          <td>{{item.receivedAt}}</td>
+          <td>{{item.receivedBy.firstname}} {{item.receivedBy.lastname}}</td>
+          <!-- <td>
+          <Button class="btn btn-primary" (click)="getUpdateForm(item)">Edit</Button>
+        </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

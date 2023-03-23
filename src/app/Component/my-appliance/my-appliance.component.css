@@ -1,0 +1,39 @@
+.new-request-form {
+  position: absolute;
+  top: 0;
+  background: rgba(255, 255, 255, 0.253);
+  backdrop-filter: blur(3px);
+  z-index: 4;
+}
+
+.form-container {
+  background: linear-gradient(180deg, rgb(0, 0, 255) 10%, rgb(0, 2, 150) 90%);
+  max-width: 600px;
+  border-radius: .5rem;
+}
+
+input {
+  padding: .3rem 1rem;
+  border-radius: .3rem;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: white;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+.new-request-form .container i {
+  padding: .3rem .5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+}
+
+.new-request-form .container i:hover {
+  background-color: #020291;
+  /* transform: scale(0.9); */
+}

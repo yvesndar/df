@@ -1,0 +1,73 @@
+<div class="header d-flex justify-content-around align-items-center py-3">
+  <h1>Return Item List</h1>
+  <div class=" button" *ngIf="getReturn">
+    <button class="btn btn-primary" (click)="removeNewForm()">New return</button>
+  </div>
+</div>
+
+<div class="container-fluid px-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped dt-responsive nowrap"
+    style="width:100%">
+    <thead>
+      <tr>
+        <th>part number</th>
+        <th>description </th>
+        <th>quantity </th>
+        <th>Taken At</th>
+        <th>Received At</th>
+        <th>Returned by</th>
+      </tr>
+    </thead>
+    <tbody class="fw-bold">
+      <tr *ngFor=" let item of return">
+        <td>{{item.partNumber}}</td>
+        <td>{{item.reason}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.takenAt| date}}</td>
+        <td>{{item.returnedAt| date}}</td>
+        <td>{{item.requestedBy.firstname}} {{item.requestedBy.lastname}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="popup-container container-fluid h-100 w-100 d-flex justify-content-center align-items-center"
+  *ngIf="newReturnedForm">
+  <form [formGroup]="NewReturned" class="col-lg-5 text-light">
+    <div class="header">
+      <h1>Return Form</h1>
+      <i class='bx bx-arrow-back' (click)="removeNewForm()"></i>
+    </div>
+    <div class="content d-flex justify-content-center align-items-start">
+      <div class="partNumber d-flex flex-column">
+        <label for="partNumber">Part number</label>
+        <input type="text" placeholder="part number" name="partNumber" formControlName="partNumber">
+      </div>
+      <div class="serialNumber d-flex flex-column">
+        <label for="serialNumber">Serial number </label>
+        <input type="text" placeholder="serialNumber" name="serialNumber" formControlName="serialNumber">
+      </div>
+      <div class="serialNumber d-flex flex-column">
+        <label for="serialNumber">Dsecritpion</label>
+        <input type="text" placeholder="serialNumber" name="serialNumber" formControlName="serialNumber">
+      </div>
+      <div class="quantity d-flex flex-column">
+        <label for="quantity">Quantity</label>
+        <input type="number" placeholder="quantity" name="quantity" formControlName="quantity">
+      </div>
+      <div class="takenAt d-flex flex-column">
+        <label for="takenAt">Taken At</label>
+        <input type="date" placeholder="takenAt" name="takenAt" formControlName="takenAt">
+      </div>
+      <div class="reason d-flex flex-column">
+        <label for="reason">Reason</label>
+        <textarea name="reason" id="" cols="60" rows="3" formControlName="reason"></textarea>
+      </div>
+      <div class="button d-flex">
+        <button class="button" (click)="verify(NewReturned.value)">verify</button>
+        <button type="submit" class="button" (click)="onSubmit(NewReturned.value)">submit</button>
+      </div>
+    </div>
+  </form>
+</div>

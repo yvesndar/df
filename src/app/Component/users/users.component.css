@@ -1,0 +1,136 @@
+.popup-container {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.384);
+}
+
+form {
+  border: none;
+  border-radius: 0.5rem;
+  /* background: linear-gradient(60deg, rgb(0, 60, 223) 0%, rgb(0, 18, 97) 100%); */
+}
+
+input {
+  outline: none;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 500;
+}
+
+select {
+  outline: none;
+  padding: 0.3rem 1rem;
+  font-weight: 500;
+}
+
+.header button {
+  font-size: 12px;
+  padding: .2rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background-color: blue;
+  color: white;
+}
+
+.new-account-form {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.219);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(2px);
+}
+
+.new-account-form .container,
+.update-account-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  background: linear-gradient(45deg, rgb(0, 0, 255) 10%, rgb(0, 2, 150) 90%);
+  padding: 2rem 1rem;
+}
+
+.new-account-form .container i {
+  padding: .5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+}
+
+.new-account-form .container i:hover {
+  background-color: #00004e;
+}
+
+.new-account-form .cards {
+  padding: 0.5rem;
+}
+
+.new-account-form .button {
+  padding: 1rem 0;
+}
+
+.new-account-form form {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.new-account-form form input,
+.new-account-form form select,
+.new-account-form form option,
+.update-account-form input,
+.update-account-form select,
+.update-account-form option,
+.update-account-form label {
+  padding: 0.3rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 0.2rem;
+  border: none;
+  outline: none;
+}
+
+.new-account-form form select {
+  text-transform: capitalize;
+}
+
+.new-account-form input.ng-invalid.ng-touched,
+.new-account-form select.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+.form-container {
+  width: 800px;
+}
+
+td {
+  font-size: 14px;
+}
+
+.inactive {
+  font-weight: 500;
+  color: white;
+  background-color: red;
+  padding: .2rem 1rem;
+  border-radius: .2rem;
+  border: none;
+}
+
+.active {
+  font-weight: 500;
+  color: white;
+  background-color: rgba(0, 0, 255);
+  padding: .2rem 1rem;
+  border-radius: .2rem;
+  border: none;
+}
